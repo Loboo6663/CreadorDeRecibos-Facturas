@@ -1,1 +1,250 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recibos de la academia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f2ee;--bg2:#eae8e1;--card:#fff;--tx:#1c1c1a;--mu:#6e6d67;--ac:#2f5bea;--ac-h:#2449c4;--ac-s:#e9eefd;--bd:#e4e2db;--in:#faf9f6;--ok:#1d8a4b;--dg:#d23a3a;--dg-s:#fdeceb;
+ --sh:0 1px 2px rgba(20,20,15,.04),0 6px 24px rgba(20,20,15,.06);--sh2:0 2px 4px rgba(20,20,15,.06),0 18px 40px rgba(20,20,15,.12)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--bg2:#1c1c1a;--card:#1f1f1d;--tx:#f0efe9;--mu:#9c9b94;--ac:#7097ff;--ac-h:#8ba9ff;--ac-s:#232c45;--bd:#33332f;--in:#191918;--ok:#4cc27e;--dg:#ff6b6b;--dg-s:#3a2222;--sh:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);--sh2:0 18px 40px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#141413;--bg2:#1c1c1a;--card:#1f1f1d;--tx:#f0efe9;--mu:#9c9b94;--ac:#7097ff;--ac-h:#8ba9ff;--ac-s:#232c45;--bd:#33332f;--in:#191918;--ok:#4cc27e;--dg:#ff6b6b;--dg-s:#3a2222;--sh:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);--sh2:0 18px 40px rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--tx);font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
+ padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 
+/* Cabecera */
+.hd{max-width:1080px;margin:0 auto;padding:28px 16px 8px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e8731a,#f3a35c);display:grid;place-items:center;color:#fff;box-shadow:0 6px 16px rgba(232,115,26,.3)}
+.brand h2{margin:0;font-size:20px;font-weight:700;letter-spacing:-.01em}
+.brand p{margin:0;font-size:13px;color:var(--mu)}
+.tabs{display:flex;gap:4px;background:var(--bg2);padding:4px;border-radius:12px;border:1px solid var(--bd)}
+.tabs button{margin:0;padding:8px 14px;background:transparent;color:var(--mu);border:0;border-radius:9px;font-weight:500;box-shadow:none}
+.tabs button:hover{color:var(--tx);background:transparent}
+.tabs button.on{background:var(--card);color:var(--tx);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+#cnt{display:inline-block;min-width:22px;padding:0 6px;margin-left:4px;border-radius:99px;background:var(--ac-s);color:var(--ac);font-size:12px;font-weight:600;line-height:20px}
+#cnt:empty{display:none}
+
+/* Rejilla y tarjetas */
+.wrap{max-width:1080px;margin:0 auto;padding:16px;display:grid;gap:20px;grid-template-columns:minmax(0,380px) minmax(0,1fr);align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;box-shadow:var(--sh)}
+h1{font-size:17px;font-weight:600;margin:0 0 4px;letter-spacing:-.01em}
+.sub{margin:0 0 14px;font-size:13px;color:var(--mu)}
+.sec{margin:18px 0 2px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)}
+
+/* Formulario */
+label{display:block;font-size:13px;font-weight:500;color:var(--mu);margin:10px 0 5px}
+input{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;font:inherit;background:var(--in);color:var(--tx);transition:border-color .15s,box-shadow .15s,background .15s}
+input:hover{border-color:color-mix(in srgb,var(--bd) 60%,var(--mu))}
+input:focus{outline:none;border-color:var(--ac);background:var(--card);box-shadow:0 0 0 4px var(--ac-s)}
+input::placeholder{color:var(--mu);opacity:.7}
+.u{position:relative}.u input{padding-right:32px}
+.u::after{content:attr(data-u);position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--mu);font-size:13px;pointer-events:none}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sum{margin:18px 0 4px;padding:14px 16px;border-radius:12px;background:var(--ac-s);display:flex;justify-content:space-between;align-items:baseline}
+.sum span{font-size:13px;color:var(--mu);font-weight:500}
+.sum b{font-size:24px;font-weight:700;color:var(--ac);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* Botones */
+button{margin:0;padding:10px 16px;border:1px solid transparent;border-radius:10px;background:var(--ac);color:#fff;font:inherit;font-weight:600;font-size:14px;cursor:pointer;transition:background .15s,transform .05s,box-shadow .15s;display:inline-flex;align-items:center;gap:6px}
+button:hover{background:var(--ac-h)}
+button:active{transform:translateY(1px)}
+button:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ac-s)}
+button.s{background:transparent;color:var(--ac);border-color:color-mix(in srgb,var(--ac) 40%,transparent)}
+button.s:hover{background:var(--ac-s)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#bg{width:100%;justify-content:center;padding:12px 16px;box-shadow:0 6px 16px color-mix(in srgb,var(--ac) 30%,transparent)}
+.acts .s{flex:1;justify-content:center}
+#msg{display:block;min-height:20px;margin-top:10px;font-size:13px;font-weight:500;color:var(--ok)}
+.hint{font-size:13px;color:var(--mu)}
+.tip{margin:14px 0 0;padding-top:14px;border-top:1px dashed var(--bd)}
+
+/* Vista previa */
+.pv{background:radial-gradient(circle at 1px 1px,var(--bd) 1px,transparent 0) 0 0/18px 18px,var(--card)}
+.pvh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.pill{font-size:12px;font-weight:600;color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);padding:3px 10px;border-radius:99px}
+#img{max-width:100%;border:1px solid var(--bd);border-radius:12px;margin-top:16px;display:none;box-shadow:var(--sh)}
+
+/* El recibo (formato papel, siempre claro) */
+#rec{background:#fffdf9;color:#1d1d1b;border:2px solid #2a5d9f;border-radius:16px;padding:22px 24px;max-width:680px;margin:0 auto;font-size:15px;box-shadow:var(--sh2);font-family:Inter,system-ui,sans-serif;overflow-x:auto}
+#rec .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+#rec .ttl{flex:1;text-align:center;color:#e8731a;font-size:2em;font-weight:700;letter-spacing:4px}
+#rec .nbox{background:#fde3d3;border:1px solid #2a5d9f;border-radius:6px;padding:6px 10px;color:#2a5d9f;min-width:120px;display:flex;gap:6px}
+#rec .nbox span{flex:1;text-align:center;color:#1d1d1b;font-weight:700;border-bottom:1px solid #2a5d9f}
+.f{display:flex;align-items:flex-end;gap:8px;margin:16px 0 0;color:#2a5d9f;flex-wrap:nowrap}
+.f.d{justify-content:flex-end;margin-top:20px}
+.ln{display:inline-block;border-bottom:1px solid #2a5d9f;color:#1d1d1b;font-weight:600;min-height:1.4em;padding:0 6px;text-align:center;min-width:44px}
+.fill{flex:1;text-align:left}
+.band{flex:1;background:#d9e3f0;color:#1d1d1b;font-weight:600;padding:3px 8px;min-height:1.7em;border-radius:3px}
+.rc{margin:18px 0 0 52%;color:#2a5d9f;font-size:.85em}
+.bot{display:flex;align-items:flex-end;gap:10px;margin-top:4px;color:#2a5d9f}
+.pbox{background:#fde3d3;color:#1d1d1b;font-weight:700;padding:5px 12px;min-width:100px;text-align:center;border-radius:4px}
+.bot .fd{flex:1;display:flex;gap:6px;align-items:flex-end;margin-left:10px}
+
+/* Lista de recibos */
+.lh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.lh h1{margin:0}
+.srch{position:relative;flex:1;max-width:340px;min-width:200px}
+.srch svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--mu);pointer-events:none}
+#q{margin:0;padding-left:36px}
+.it{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px;margin:0 -14px;border-radius:12px;transition:background .15s}
+.it+.it{border-top:1px solid var(--bd)}
+.it:hover{background:var(--in)}
+.it .tt{display:flex;align-items:center;gap:12px;min-width:0}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:14px;color:var(--ac);background:var(--ac-s)}
+.it .tx{display:flex;flex-direction:column;min-width:0}
+.it .tx b{font-weight:600}
+.it .tx span{font-size:13px;color:var(--mu)}
+.it .ac{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.it .ac button{padding:7px 12px;font-size:13px}
+.it .ac>span{font-size:13px;color:var(--dg);font-weight:500;margin-right:4px}
+button.dg{background:var(--dg)}button.dg:hover{background:color-mix(in srgb,var(--dg) 85%,#000)}
+button.dg.s{background:transparent;color:var(--dg);border-color:color-mix(in srgb,var(--dg) 40%,transparent)}
+button.dg.s:hover{background:var(--dg-s)}
+.empty{text-align:center;padding:40px 16px}
+.empty div{font-size:36px;margin-bottom:6px}
+
+@media (max-width:520px){.hd{padding-top:18px}.card{padding:18px;border-radius:16px}.tabs{width:100%}.tabs button{flex:1;justify-content:center}#rec{padding:16px;font-size:13px}}
+@media print{body{background:#fff}.ctl,#img,.hint,.hd,#lista,.pvh{display:none!important}.wrap{display:block;padding:0}.card,.pv{border:0;padding:0;box-shadow:none;background:#fff}#rec{box-shadow:none}}
+</style></head><body>
+<header class="hd">
+ <div class="brand">
+  <div class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 1 .7V2l-1 .7-3-2-3 2-3-2-3 2-3-2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+  <div><h2>Recibos de la academia</h2><p>Crea, guarda e imprime recibos en segundos</p></div>
+ </div>
+ <nav class="tabs"><button id="t1" class="on">Nuevo recibo</button><button id="t2">Guardados <span id="cnt"></span></button></nav>
+</header>
+<div class="wrap" id="nuevo">
+<div class="card ctl">
+<h1>Datos del recibo</h1>
+<p class="sub">La vista previa se actualiza mientras escribes.</p>
+<div class="sec">Academia y alumno</div>
+<label for="ac">Nombre de la academia (firma)</label><input id="ac" value="Academia de Repaso">
+<label for="al">Nombre del alumno</label><input id="al" placeholder="Ej.: María López">
+<div class="sec">Clases</div>
+<div class="row"><div><label for="ho">Horas</label><div class="u" data-u="h"><input id="ho" type="number" min="0" step="0.5" value="1"></div></div>
+<div><label for="pr">Precio por hora</label><div class="u" data-u="€"><input id="pr" type="number" min="0" step="0.5" value="12"></div></div></div>
+<div class="row"><div><label for="iv">IVA</label><div class="u" data-u="%"><input id="iv" type="number" min="0" step="1" value="0"></div></div>
+<div><label for="nu">Nº de recibo</label><input id="nu" value="001"></div></div>
+<label for="fe">Fecha</label><input id="fe" type="date">
+<div class="sum"><span>Total a cobrar</span><b id="tot"></b></div>
+<div class="acts">
+ <button id="bg">Guardar recibo</button>
+ <button id="bc" class="s" style="display:none">Cancelar edición</button>
+ <button id="bp" class="s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>Imprimir</button>
+ <button id="bi" class="s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>Imagen</button>
+</div>
+<span id="msg" class="hint"></span>
+<p class="hint tip">💡 Al imprimir puedes elegir «Guardar como PDF». La imagen se guarda con clic derecho (o pulsación larga en el móvil).</p>
+</div>
+<div class="card pv">
+<div class="pvh"><h1>Vista previa</h1><span class="pill">● En directo</span></div>
+<div id="rec">
+<div class="top"><div class="ttl">RECIBO</div><div class="nbox">Nº<span id="r_nu"></span></div></div>
+<div class="f d"><span class="ln" id="r_d"></span>de<span class="ln" id="r_m" style="min-width:110px"></span>de 20<span class="ln" id="r_y"></span></div>
+<div class="f">Nombre<span class="ln fill" id="r_al"></span></div>
+<div class="f">la cantidad de Euros<span class="band" id="r_w"></span></div>
+<div class="f">por<span class="ln fill" id="r_p1"></span></div>
+<div class="f"><span class="ln fill" id="r_p2"></span></div>
+<div class="rc">Recibí:</div>
+<div class="bot"><b>SON</b><span class="pbox" id="r_to"></span><b>€uros</b><span class="fd">Fdo.<span class="ln fill" id="r_ac" style="text-align:center"></span></span></div>
+</div>
+<img id="img" alt="Recibo en imagen">
+</div></div>
+<div class="wrap" id="lista" style="display:none"><div class="card" style="grid-column:1/-1">
+<div class="lh"><h1>Recibos guardados</h1>
+<div class="srch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" placeholder="Buscar por nombre del alumno…"></div></div>
+<div id="items"></div></div></div>
+<script>
+const $=id=>document.getElementById(id),f=new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'});
+const M=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+$('fe').value=new Date().toISOString().slice(0,10);
+try{const a=localStorage.getItem('ac'),p=localStorage.getItem('pr');if(a)$('ac').value=a;if(p)$('pr').value=p}catch(e){}
+const U=['cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce','trece','catorce','quince','dieciséis','diecisiete','dieciocho','diecinueve','veinte','veintiuno','veintidós','veintitrés','veinticuatro','veinticinco','veintiséis','veintisiete','veintiocho','veintinueve'];
+const De=['','','','treinta','cuarenta','cincuenta','sesenta','setenta','ochenta','noventa'];
+const Ce=['','ciento','doscientos','trescientos','cuatrocientos','quinientos','seiscientos','setecientos','ochocientos','novecientos'];
+function g(n){if(n<30)return U[n];if(n<100)return De[Math.floor(n/10)]+(n%10?' y '+U[n%10]:'');if(n==100)return'cien';return Ce[Math.floor(n/100)]+(n%100?' '+g(n%100):'')}
+function pal(n){if(n<1000)return g(n);const m=Math.floor(n/1000),r=n%1000;return(m==1?'mil':g(m).replace(/uno$/,'ún')+' mil')+(r?' '+g(r):'')}
+function euros(t){const c=Math.round(t*100),e=Math.floor(c/100),ce=c%100;
+ let s=(e==1?'un euro':pal(e).replace(/uno$/,'un')+' euros');if(ce)s+=' con '+pal(ce).replace(/uno$/,'un')+(ce==1?' céntimo':' céntimos');
+ return s.charAt(0).toUpperCase()+s.slice(1)}
+let S={};
+function upd(){
+ const h=+$('ho').value||0,p=+$('pr').value||0,i=+$('iv').value||0,t=Math.round(h*p*(1+i/100)*100)/100;
+ const [y,m,d]=($('fe').value||'').split('-');
+ S={nu:$('nu').value,d:d?+d:'',m:m?M[+m-1]:'',y:y?y.slice(2):'',al:$('al').value,w:euros(t),
+  p1:String(h).replace('.',',')+(h==1?' hora':' horas')+' de clase'+(i?' (IVA incluido)':''),p2:'',
+  to:t.toFixed(2).replace('.',','),ac:$('ac').value};
+ const mp={r_nu:'nu',r_d:'d',r_m:'m',r_y:'y',r_al:'al',r_w:'w',r_p1:'p1',r_p2:'p2',r_to:'to',r_ac:'ac'};
+ for(const k in mp)$(k).textContent=S[mp[k]];
+ $('tot').textContent=f.format(t);
+ if(!window.NS)try{localStorage.setItem('ac',$('ac').value);localStorage.setItem('pr',$('pr').value)}catch(e){}
+}
+document.querySelectorAll('input').forEach(e=>e.addEventListener('input',upd));upd();
+$('bp').onclick=()=>window.print();
+$('bi').onclick=()=>{
+ const W=760,H=500,c=document.createElement('canvas');c.width=W*2;c.height=H*2;const x=c.getContext('2d');x.scale(2,2);
+ const B='#2a5d9f',O='#e8731a',T='#1d1d1b',ff='system-ui,Arial,sans-serif';
+ const tx=(s,X,Y,fn,col,al,mw)=>{x.font=fn;x.fillStyle=col;x.textAlign=al||'left';x.fillText(s,X,Y,mw)};
+ const ln=(a,b,Y)=>{x.strokeStyle=B;x.lineWidth=1;x.beginPath();x.moveTo(a,Y);x.lineTo(b,Y);x.stroke()};
+ const box=(X,Y,w,h,col,st)=>{x.fillStyle=col;x.beginPath();x.roundRect(X,Y,w,h,st?6:3);x.fill();if(st){x.strokeStyle=B;x.lineWidth=1.5;x.stroke()}};
+ x.fillStyle='#fff';x.fillRect(0,0,W,H);
+ x.strokeStyle=B;x.lineWidth=2;x.beginPath();x.roundRect(14,14,W-28,H-28,18);x.stroke();
+ tx('RECIBO',380,80,'32px '+ff,O,'center');
+ box(560,48,170,40,'#fde3d3',1);tx('Nº',572,74,'15px '+ff,B);tx(S.nu,660,74,'bold 18px '+ff,T,'center',90);ln(592,720,80);
+ ln(300,360,138);tx(String(S.d),330,133,'bold 16px '+ff,T,'center');tx('de',375,133,'15px '+ff,B);
+ ln(400,540,138);tx(S.m,470,133,'bold 16px '+ff,T,'center');tx('de 20',560,133,'15px '+ff,B);ln(600,720,138);tx(S.y,660,133,'bold 16px '+ff,T,'center');
+ tx('Nombre',36,198,'16px '+ff,B);ln(105,724,203);tx(S.al,112,198,'bold 17px '+ff,T,'left',600);
+ tx('la cantidad de Euros',36,255,'16px '+ff,B);box(190,235,534,28,'#d9e3f0');box(36,272,688,28,'#d9e3f0');
+ x.font='bold 16px '+ff;let w=S.w.split(' '),a='';while(w.length&&x.measureText(a+' '+w[0]).width<510)a+=(a?' ':'')+w.shift();
+ tx(a,198,255,'bold 16px '+ff,T,'left',520);tx(w.join(' '),44,292,'bold 16px '+ff,T,'left',672);
+ tx('por',36,342,'16px '+ff,B);ln(62,724,347);tx(S.p1,70,342,'bold 17px '+ff,T,'left',650);
+ ln(36,724,392);tx(S.p2,44,387,'bold 17px '+ff,T,'left',672);
+ tx('Recibí:',390,430,'14px '+ff,B);
+ tx('SON',36,468,'bold 16px '+ff,B);box(86,444,130,34,'#fde3d3');tx(S.to,151,468,'bold 18px '+ff,T,'center',120);
+ tx('€uros',232,468,'bold 17px '+ff,B);tx('Fdo.',350,468,'15px '+ff,B);ln(390,724,472);tx(S.ac,557,467,'bold 16px '+ff,T,'center',320);
+ const im=$('img');im.src=c.toDataURL('image/png');im.style.display='block';
+};
+let R=[],pend=null,ed=null;
+try{R=JSON.parse(localStorage.getItem('recs')||'[]')}catch(e){R=[]}
+const saveR=()=>{try{localStorage.setItem('recs',JSON.stringify(R))}catch(e){}};
+const cnt=()=>{$('cnt').textContent=R.length||''};
+function tab(n){$('nuevo').style.display=n==1?'':'none';$('lista').style.display=n==2?'':'none';$('t1').className=n==1?'on':'';$('t2').className=n==2?'on':'';if(n==2)draw()}
+$('t1').onclick=()=>tab(1);$('t2').onclick=()=>tab(2);
+function sig(s){const m=s.match(/^(.*?)(\d+)$/);return m?m[1]+String(+m[2]+1).padStart(m[2].length,'0'):s}
+$('bg').onclick=()=>{
+ if(!$('al').value.trim()){$('msg').style.color='var(--dg)';$('msg').textContent='Escribe primero el nombre del alumno.';$('al').focus();return}
+ const o={id:ed||Date.now(),al:$('al').value.trim(),ho:$('ho').value,pr:$('pr').value,iv:$('iv').value,nu:$('nu').value,fe:$('fe').value,ac:$('ac').value,to:S.to};
+ if(ed){R=R.map(x=>x.id===ed?o:x);saveR();stopEd();tab(2);return}
+ R.push(o);saveR();$('nu').value=sig($('nu').value);upd();cnt();$('msg').style.color='';$('msg').textContent='✓ Recibo guardado';
+};
+function mk(t,fn,c){const b=document.createElement('button');b.textContent=t;b.className=c||'';b.onclick=fn;return b}
+function load(r){window.NS=1;$('al').value=r.al;$('ho').value=r.ho;$('pr').value=r.pr;$('iv').value=r.iv;$('nu').value=r.nu;$('fe').value=r.fe;$('ac').value=r.ac;upd();window.NS=0}
+function draw(){
+ const q=$('q').value.trim().toLowerCase(),L=R.filter(r=>r.al.toLowerCase().includes(q)).sort((a,b)=>a.al.localeCompare(b.al,'es')||b.id-a.id);
+ const box=$('items');box.textContent='';
+ if(!L.length){const p=document.createElement('div');p.className='hint empty';const i=document.createElement('div');i.textContent=R.length?'🔍':'🧾';p.append(i,R.length?'Ningún resultado.':'Todavía no hay recibos guardados.');box.append(p);return}
+ L.forEach(r=>{
+  const d=document.createElement('div');d.className='it';
+  const [y,m,dd]=(r.fe||'').split('-');
+  const t=document.createElement('div');t.className='tt';
+  const av=document.createElement('span');av.className='av';av.textContent=r.al.split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+  const tx=document.createElement('div');tx.className='tx';
+  const b=document.createElement('b');b.textContent=r.al;
+  const s=document.createElement('span');s.textContent='Recibo n.º '+r.nu+(y?' · '+dd+'/'+m+'/'+y:'')+' · '+r.to+' €';
+  tx.append(b,s);t.append(av,tx);
+  const a=document.createElement('div');a.className='ac';
+  a.append(mk('Imprimir',()=>{stopEd();load(r);tab(1);setTimeout(()=>window.print(),150)}),mk('Editar',()=>startEd(r),'s'));
+  if(pend===r.id){const w=document.createElement('span');w.textContent='¿Eliminar este recibo?';a.append(w,mk('Sí, eliminar',()=>{R=R.filter(x=>x.id!==r.id);if(ed===r.id)stopEd();saveR();pend=null;cnt();draw()},'dg'),mk('No',()=>{pend=null;draw()},'s'))}
+  else a.append(mk('Eliminar',()=>{pend=r.id;draw()},'dg s'));
+  d.append(t,a);box.append(d)
+ })
+}
+function startEd(r){load(r);ed=r.id;$('bg').textContent='Guardar cambios';$('bc').style.display='';$('msg').style.color='var(--ac)';$('msg').textContent='Editando el recibo n.º '+r.nu+' de '+r.al;tab(1)}
+function stopEd(){ed=null;$('bg').textContent='Guardar recibo';$('bc').style.display='none';$('msg').textContent=''}
+$('bc').onclick=()=>{stopEd();tab(2)};
+$('q').addEventListener('input',draw);cnt();
+</script></body></html>
