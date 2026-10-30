@@ -10,7 +10,7 @@ Aplicación sencilla para crear, guardar e imprimir recibos de una academia de r
 2. Escribe el nombre del alumno, las horas y el precio por hora.
 3. Pulsa Guardar recibo, Imprimir recibo o Generar imagen.
 4. En la pestaña Recibos guardados puedes buscar a un alumno y volver a imprimir, editar o eliminar sus recibos.
-# Privacidad @
+# Privacidad #
 Los datos no se envían a ningún servidor. Los recibos se guardan en el navegador del ordenador donde se crean. Si se borran los datos del navegador o se usa otro ordenador, no aparecerán.
-#Tecnologías# 
+# Tecnologías # 
 HTML, CSS y JavaScript, sin librerías externas.
